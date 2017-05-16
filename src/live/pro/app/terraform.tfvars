@@ -1,17 +1,10 @@
 terragrunt = {
   terraform {
     source = "../../../modules/app"
-    extra_arguments "no_color_output" {
-      commands = [
-        "apply",
-        "plan",
-        "import",
-        "push",
-        "refresh"
-      ]
-
-      arguments = ["-no-color"]
-    }
+  }
+  # Should not be build before Database
+  dependencies {
+    path = ["../db"]
   }
 }
 
