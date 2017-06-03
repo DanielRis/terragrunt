@@ -3,5 +3,5 @@ variable "instance_count" {
 }
 
 resource "null_resource" "db_instance" {
-    count = "${var.instance_count}"
+  count = "${var.instance_count}"
 }

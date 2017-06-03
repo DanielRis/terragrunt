@@ -3,5 +3,9 @@ variable "instance_count" {
 }
 
 resource "null_resource" "app_instance" {
-    count = "${var.instance_count}"
+  count = "${var.instance_count}"
+
+  triggers {
+    "Application Name" = "${module.application_common.data["name"]}"
+  }
 }
